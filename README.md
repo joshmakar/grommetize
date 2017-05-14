@@ -4,7 +4,7 @@ An Adobe Illustrator script that is used for generating grommet location marks f
 
 ## Installation
 
-To install, extract the bannerize.jsx to the scripts folder for Adobe Illustrator.  
+To install, extract the grommetize.jsx to the scripts folder for Adobe Illustrator.  
 Ex: C:/Program Files(x86)/Adobe/[Adobe Illustrator Folder]/Presets/en_US/Scripts
 
 ## Usage
