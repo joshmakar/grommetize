@@ -44,7 +44,7 @@ function calcSpacing(){
 }
 
 if (grommetSpacing === "about"){
-    alert("Grommetize " + grommetizeVersion + ". written by Josh Makar, 2017.\rTo report any issues, bugs, or to suggest improvements, send an email to joshmakar@gmail.com\nTo ensure Proof Details Generator is up-to-date, visit:\rhttp://github.com/joshmakar/grommetize");
+    alert("Grommetize " + grommetizeVersion + ". written by Josh Makar, 2017.\rTo report any issues, bugs, or to suggest improvements, send an email to joshmakar@gmail.com\nTo ensure Grommetize is up-to-date, visit:\rhttp://github.com/joshmakar/grommetize");
 } else if (grommetSpacing != null && grommetSpacing != 0) {
 	grommetSpacing *= 72;
 	if (grommetSpacing === parseInt(grommetSpacing, 10)) {
