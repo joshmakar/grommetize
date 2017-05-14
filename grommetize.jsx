@@ -6,7 +6,7 @@
 
 #target Illustrator
 
-var myDoc = app.activeDocument;  
+var myDoc = app.activeDocument;
 
 /* Variables */
 
@@ -21,9 +21,13 @@ grommetMarkColor.green = 0;
 grommetMarkColor.blue = 140;
 
 // Get artboard sizing
-var artBoardSize = myDoc.artboards;
-var width = artBoardSize[0].artboardRect[2];
-var height = artBoardSize[0].artboardRect[3];
+// var artBoardSize = myDoc.artboards;
+// var width = artBoardSize[0].artboardRect[2];
+// var height = artBoardSize[0].artboardRect[3];
+
+// Get document sizing
+var width = myDoc.width;
+var height = myDoc.height;
 
 // Styling
 var noColor = new NoColor();
