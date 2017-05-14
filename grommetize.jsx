@@ -44,9 +44,10 @@ if (grommetSpacing === "about"){
 } else if (grommetSpacing != null && grommetSpacing != 0) {
 	grommetSpacing *= 72;
 	if (grommetSpacing === parseInt(grommetSpacing, 10)) {
+		
 		// Create template layer
 		var printMarksLayer = myDoc.layers.add();
-		printMarksLayer.name = "Template";
+		printMarksLayer.name = "Grommets";
 
 		function createGrommets(){
 			calcSpacing();
@@ -77,7 +78,12 @@ if (grommetSpacing === "about"){
 				spacingY += spaceBetweenGrommetsY;
 			}
 		}
+		
 		createGrommets();
+
+		// Lock Template Layer
+		printMarksLayer.locked = true;
+
 	} else {
 		alert("Please input a valid numeric entry for grommet spacing.\nMust be a value greater than 0.")
 	}
