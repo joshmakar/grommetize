@@ -1,4 +1,4 @@
-# Illustrator Bannerize (V1.0)
+# Illustrator Grommetize (V1.0)
 
 An Adobe Illustrator script that is used for generating grommet location marks for banners.
 
