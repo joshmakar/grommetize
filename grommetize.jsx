@@ -14,11 +14,15 @@ var myDoc = app.activeDocument;
 var grommetSize = 27; // .375 in.
 var grommetMargin = 9; // .125 in.
 // var grommetSpacing = 576; // 8 in.
-var grommetSpacing = prompt("Average distance between grommets in inches.\nDefault: 10.\n\nType 'about' for information about Grommetize.", 10);
-var grommetMarkColor = new RGBColor();
-grommetMarkColor.red = 236;
-grommetMarkColor.green = 0;
-grommetMarkColor.blue = 140;
+var grommetSpacing = prompt("Average distance between grommets in inches.\nDefault: 20.\n\nType 'about' for information about Grommetize.", 20);
+var grommetMarkFillColor = new RGBColor();
+grommetMarkFillColor.red = 236;
+grommetMarkFillColor.green = 0;
+grommetMarkFillColor.blue = 140;
+var grommetMarkStrokeColor = new RGBColor();
+grommetMarkStrokeColor.red = 255;
+grommetMarkStrokeColor.green = 255;
+grommetMarkStrokeColor.blue = 255;
 
 // Get artboard sizing
 // var artBoardSize = myDoc.artboards;
@@ -59,26 +63,26 @@ if (grommetSpacing === "about"){
 			var spacingY = grommetMargin;
 			for (i = 0; i < noOfGrommetX + 1; i++) { // Top & Bottom Grommets
 				grommetMarkT = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX, grommetSize, grommetSize );
-				grommetMarkT.fillColor = grommetMarkColor;
-				grommetMarkT.strokeColor = noColor;
-				grommetMarkT.strokeWidth = "0";
+				grommetMarkT.fillColor = grommetMarkFillColor;
+				grommetMarkT.strokeColor = grommetMarkStrokeColor;
+				grommetMarkT.strokeWidth = "1";
 				grommetMarkB = printMarksLayer.pathItems.ellipse( -(spacingY + areaY), spacingX, grommetSize, grommetSize );
-				grommetMarkB.fillColor = grommetMarkColor;
-				grommetMarkB.strokeColor = noColor;
-				grommetMarkB.strokeWidth = "0";
+				grommetMarkB.fillColor = grommetMarkFillColor;
+				grommetMarkB.strokeColor = grommetMarkStrokeColor;
+				grommetMarkB.strokeWidth = "1";
 				spacingX += spaceBetweenGrommetsX;
 			}
 			spacingX = grommetMargin;
 			spacingY = grommetMargin + spaceBetweenGrommetsY;
 			for (i = 0; i < noOfGrommetY - 1; i++) { // Left & Right Grommets
 				grommetMarkL = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX, grommetSize, grommetSize );
-				grommetMarkL.fillColor = grommetMarkColor;
-				grommetMarkL.strokeColor = noColor;
-				grommetMarkL.strokeWidth = "0";
+				grommetMarkL.fillColor = grommetMarkFillColor;
+				grommetMarkL.strokeColor = grommetMarkFillColor;
+				grommetMarkL.strokeWidth = "1";
 				grommetMarkR = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX + areaX, grommetSize, grommetSize );
-				grommetMarkR.fillColor = grommetMarkColor;
-				grommetMarkR.strokeColor = noColor;
-				grommetMarkR.strokeWidth = "0";
+				grommetMarkR.fillColor = grommetMarkFillColor;
+				grommetMarkR.strokeColor = grommetMarkStrokeColor;
+				grommetMarkR.strokeWidth = "1";
 				spacingY += spaceBetweenGrommetsY;
 			}
 		}
