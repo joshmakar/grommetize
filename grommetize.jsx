@@ -12,7 +12,7 @@ var myDoc = app.activeDocument;
 
 // Grommets
 var grommetSize = 27; // .375 in.
-var grommetMargin = 9; // .125 in.
+var grommetMargin = .57 * 72; // .7 in.
 // var grommetSpacing = 576; // 8 in.
 var grommetSpacing = prompt("Average distance between grommets in inches.\nDefault: 20.\n\nType 'about' for information about Grommetize.", 20);
 var grommetMarkFillColor = new RGBColor();
@@ -23,6 +23,7 @@ var grommetMarkStrokeColor = new RGBColor();
 grommetMarkStrokeColor.red = 255;
 grommetMarkStrokeColor.green = 255;
 grommetMarkStrokeColor.blue = 255;
+var sideGrommets = confirm('Add side grommets?')
 
 // Get artboard sizing
 // var artBoardSize = myDoc.artboards;
@@ -35,6 +36,10 @@ var height = myDoc.height;
 
 // Styling
 var noColor = new NoColor();
+var black = new CMYKColor();
+black.black = 100;
+var white = new CMYKColor();
+white.black = 0;
 
 /* Functions */
 
@@ -74,24 +79,45 @@ if (grommetSpacing === "about"){
 			}
 			spacingX = grommetMargin;
 			spacingY = grommetMargin + spaceBetweenGrommetsY;
-			for (i = 0; i < noOfGrommetY - 1; i++) { // Left & Right Grommets
-				grommetMarkL = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX, grommetSize, grommetSize );
-				grommetMarkL.fillColor = grommetMarkFillColor;
-				grommetMarkL.strokeColor = grommetMarkFillColor;
-				grommetMarkL.strokeWidth = "1";
-				grommetMarkR = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX + areaX, grommetSize, grommetSize );
-				grommetMarkR.fillColor = grommetMarkFillColor;
-				grommetMarkR.strokeColor = grommetMarkStrokeColor;
-				grommetMarkR.strokeWidth = "1";
-				spacingY += spaceBetweenGrommetsY;
+
+			if (sideGrommets == true) {
+				for (i = 0; i < noOfGrommetY - 1; i++) { // Left & Right Grommets
+					grommetMarkL = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX, grommetSize, grommetSize );
+					grommetMarkL.fillColor = grommetMarkFillColor;
+					grommetMarkL.strokeColor = grommetMarkStrokeColor;
+					grommetMarkL.strokeWidth = "1";
+					grommetMarkR = printMarksLayer.pathItems.ellipse( -(spacingY), spacingX + areaX, grommetSize, grommetSize );
+					grommetMarkR.fillColor = grommetMarkFillColor;
+					grommetMarkR.strokeColor = grommetMarkStrokeColor;
+					grommetMarkR.strokeWidth = "1";
+					spacingY += spaceBetweenGrommetsY;
+				}
 			}
 		}
 		
 		createGrommets();
 
+        function createProductionGuides(){
+            innerGuide=null,
+            innerGuide = myDoc.pathItems.rectangle(0,0,width,height);
+            innerGuide.fillColor = noColor;
+            innerGuide.strokeColor = black;
+            innerGuide.strokeWidth = ".25";
+            innerGuide.strokeDashes = [];
+
+            outterGuide=null,
+            outterGuide = myDoc.pathItems.rectangle(0 + 72,0 - 72,width + (72 * 2),height + (72 * 2));
+            outterGuide.fillColor = noColor;
+            outterGuide.strokeColor = black;
+            outterGuide.strokeWidth = ".25";
+            outterGuide.strokeDashes = [];
+        }
+
+        createProductionGuides();
+
 		// Lock Template Layer
 		printMarksLayer.locked = true;
-		printMarksLayer.printable = false;
+		printMarksLayer.printable = true;
 
 	} else {
 		alert("Please input a valid numeric entry for grommet spacing.\nMust be a value greater than 0.")
