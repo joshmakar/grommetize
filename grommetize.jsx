@@ -115,6 +115,14 @@ if (grommetSpacing === "about"){
 
         createProductionGuides();
 
+        function addImageDepotBranding(){
+            var idsvgfile = File(File($.fileName).parent.fsName + '/image-depot-express-logo.svg');
+            imageDepotLogo = myDoc.groupItems.createFromFile(idsvgfile);
+            imageDepotLogo.position = [102,-(height + 9)];
+        }
+
+        addImageDepotBranding();
+
 		// Lock Template Layer
 		printMarksLayer.locked = true;
 		printMarksLayer.printable = true;
