@@ -102,14 +102,14 @@ if (grommetSpacing === "about"){
             innerGuide = myDoc.pathItems.rectangle(0,0,width,height);
             innerGuide.fillColor = noColor;
             innerGuide.strokeColor = black;
-            innerGuide.strokeWidth = ".25";
+            innerGuide.strokeWidth = ".5";
             innerGuide.strokeDashes = [];
 
             outterGuide=null,
             outterGuide = myDoc.pathItems.rectangle(0 + 72,0 - 72,width + (72 * 2),height + (72 * 2));
             outterGuide.fillColor = noColor;
             outterGuide.strokeColor = black;
-            outterGuide.strokeWidth = ".25";
+            outterGuide.strokeWidth = ".5";
             outterGuide.strokeDashes = [];
         }
 
