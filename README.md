@@ -4,12 +4,14 @@ An Adobe Illustrator script that is used for generating grommet location marks f
 
 ## Installation
 
-To install, extract the grommetize.jsx to the scripts folder for Adobe Illustrator.  
+To install, extract the grommetize folder and it's contents to the scripts folder for Adobe Illustrator.  
 Ex: C:/Program Files(x86)/Adobe/[Adobe Illustrator Folder]/Presets/en_US/Scripts
 
 ## Usage
 
-Set your art board to the banner size and run the script.
+Create a new document set to the banner size and set the margins to 1 inch, then run the script.
+
+Note: If you have to change the size of the banner, you must create a new document.
 
 ## History
 
@@ -22,9 +24,7 @@ Polish coding.
 
 ## Issues
 
-Somewhat fixed issue concerning artboard resize. Grommets are correctly laid out, just not in the right location.
-
-~Resizing artboards after document has created causes issues. Script will run as if the artboard was still the same size as it was when initially created.~
+No current issues.
 
 ## Credits
 
